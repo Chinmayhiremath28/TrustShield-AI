@@ -1,0 +1,65 @@
+{
+  "folders": [
+    { "name": "🛡️ TrustShield AI", "path": "." }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "tailwindCSS.includeLanguages": { "javascript": "javascript", "html": "HTML" },
+    "emmet.includeLanguages": { "javascript": "javascriptreact" },
+    "files.associations": { "*.jsx": "javascriptreact" },
+    "python.defaultInterpreterPath": "./backend/venv/Scripts/python.exe",
+    "python.terminal.activateEnvironment": true,
+    "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
+    "terminal.integrated.defaultProfile.windows": "Command Prompt"
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "ms-python.black-formatter",
+      "dsznajder.es7-react-js-snippets",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "rangav.vscode-thunder-client",
+      "eamodio.vscode-gitlens",
+      "christian-kohler.path-intellisense",
+      "formulahendry.auto-rename-tag"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "🐍 FastAPI Backend",
+        "type": "python",
+        "request": "launch",
+        "module": "uvicorn",
+        "args": ["main:app", "--reload", "--port", "8000"],
+        "cwd": "${workspaceFolder}/backend",
+        "env": { "PYTHONPATH": "${workspaceFolder}/backend" },
+        "console": "integratedTerminal"
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "🚀 Start Backend",
+        "type": "shell",
+        "command": "cd backend && uvicorn main:app --reload",
+        "group": "build",
+        "presentation": { "panel": "new", "name": "Backend" }
+      },
+      {
+        "label": "🎨 Start Frontend",
+        "type": "shell",
+        "command": "cd frontend && npm run dev",
+        "group": "build",
+        "presentation": { "panel": "new", "name": "Frontend" }
+      }
+    ]
+  }
+}
